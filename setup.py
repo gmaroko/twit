@@ -7,11 +7,7 @@ def configure_api():
 
     [] Read keys from a shelve, maybe
     """
-
-    config ={"consumer_key" : input("\nconsumer_key>"),\
-      "consumer_secret": input("\nconsumer_secret>"),\
-        "access_token": input("\naccess_token>"),\
-          "access_token_secret":input("\naccess_token_secret>")}
+    
   auth = tweepy.OAuthHandler(config['consumer_key'], config['consumer_secret'])
   auth.set_access_token(config['access_token'], config['access_token_secret'])
 
@@ -38,7 +34,7 @@ def follower_info():
         for tweep in user.friends(): #friends - followers
             print(tweep.screen_name)
 
-    
+
 
 
 #retrieve tweets home timeline
