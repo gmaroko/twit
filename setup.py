@@ -1,6 +1,13 @@
 import tweepy
 
-def setup(setup_info):
+def configure_api():
+    """
+    Does the authetincation
+    Sets access accces token
+
+    [] Read keys from a shelve, maybe
+    """
+
     config ={"consumer_key" : input("\nconsumer_key>"),\
       "consumer_secret": input("\nconsumer_secret>"),\
         "access_token": input("\naccess_token>"),\
@@ -10,4 +17,12 @@ def setup(setup_info):
 
   return tweepy.API(auth)  #for agent
 
-tweet_agent = setup(info)
+#api
+tweepy_agent = configure_api()
+
+#retrieve tweets home timeline
+
+def retrieve_home_tweets():
+    global tweepy_agent
+    #public timeline tweets
+    return tweepy_agent.home_timeline()
