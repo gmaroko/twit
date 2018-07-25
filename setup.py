@@ -1,17 +1,18 @@
 import tweepy
 
 def configure_api():
+    from config import get
+    inf = get() #loads credentials from untracked file //git
     """
     Does the authetincation
     Sets access accces token
 
     [] Read keys from a shelve, maybe
     """
-    
-  auth = tweepy.OAuthHandler(config['consumer_key'], config['consumer_secret'])
-  auth.set_access_token(config['access_token'], config['access_token_secret'])
+    auth = tweepy.OAuthHandler(inf['consumer_key'], inf['consumer_secret'])
+    auth.set_access_token(inf['access_token'], inf['access_token_secret'])
 
-  return tweepy.API(auth)  #for agent
+    return tweepy.API(auth)  #for agent
 
 #api
 tweepy_agent = configure_api()
@@ -23,8 +24,8 @@ def user_details():
     return user
 
 #user model
-user = user_details(check)
-def follower_info():
+user = user_details()
+def follower_info(check):
     global user
     print('Username: %s'%(user.screen_name))
     print('Follower count: %d'%(user.followers_count))
