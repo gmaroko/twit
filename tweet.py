@@ -14,10 +14,10 @@ def setup(setup_info):
 
 
 def main():
-    with open("config.cfg") as info:
-        tweet_agent = setup(info)
-        text = input("\nTweet>")
-        tweet_agent.update_status(text)
+  tweet_agent = setup(info)
+  #tweet
+  text = input("\nTweet>")
+  tweet_agent.update_status(text)
 
 if __name__ == "__main__":
   main()
