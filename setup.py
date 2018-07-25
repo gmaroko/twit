@@ -20,6 +20,27 @@ def configure_api():
 #api
 tweepy_agent = configure_api()
 
+def user_details():
+    """Returns a user model - to access other details"""
+    global tweepy_agent
+    user = tweepy_agent.get_user()
+    return user
+
+#user model
+user = user_details(check)
+def follower_info():
+    global user
+    print('Username: %s'%(user.screen_name))
+    print('Follower count: %d'%(user.followers_count))
+
+    #print followers
+    if check:
+        for tweep in user.friends(): #friends - followers
+            print(tweep.screen_name)
+
+    
+
+
 #retrieve tweets home timeline
 
 def retrieve_home_tweets():
