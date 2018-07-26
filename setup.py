@@ -7,7 +7,8 @@ def configure_api():
     Does the authetincation
     Sets access accces token
 
-    [] Read keys from a shelve, maybe
+    [] Read keys from a shelve, maybe [X]
+    [] Reads from cred file instead!
     """
     auth = tweepy.OAuthHandler(inf['consumer_key'], inf['consumer_secret'])
     auth.set_access_token(inf['access_token'], inf['access_token_secret'])
